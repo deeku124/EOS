@@ -1,35 +1,28 @@
 #include<stdio.h>
 #include <pthread.h>
 
-void *hello(void *arg)
+void *greet(void *arg)
 {
-printf("Hi, This is thread. How are you?\n"); 
+printf("%s thread\n",arg); 
 }
 
-void *bye(void *arg)
-{
-printf("BYE\n"); 
-}
 
 
 int main()
 {
     pthread_t helloID;
     pthread_t byeID;
-    printf("before creating the HELLO thread\n");
+    printf("before creating both threads\n");
 
-    pthread_create(&helloID,NULL,hello,NULL);
+    pthread_create(&helloID,NULL,greet,"Hello");
     pthread_join(helloID,NULL);
 
-    printf("after creating the HELLO thread\n");
+   
 
-
-    printf("before creating BYE thraed\n");
-
-    pthread_create(&byeID,NULL,bye,NULL);
+    pthread_create(&byeID,NULL,greet,"Bye");
     pthread_join(byeID,NULL);
      
-    printf("after creating the BYE thread\n");
+    printf("after creating both threads\n");
 
     return 0;
 }
