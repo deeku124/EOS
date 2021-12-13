@@ -22,7 +22,7 @@ int main()
     if(id==0)
     {
     printf("child\n");
-    write(fd[0],&cmd,strlen(cmd));
+    read(fd[0],&cmd,strlen(cmd));
     strcat(buff,cmd);
     execl(buff,buff,NULL);
     }
