@@ -2,8 +2,6 @@
  #include <sys/types.h>
   #include <unistd.h>
 
-
-
 int main()
 {
     printf("ID:%d\n",getpid());
